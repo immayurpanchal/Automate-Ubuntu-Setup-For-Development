@@ -4,6 +4,7 @@
   "description": "Automate Machine Setup of Ubuntu like installing Code Editor, Third Party terminal and extension, browser installation etc",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,5 +13,8 @@
     "nodejs"
   ],
   "author": "Mayur Panchal",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
 }
