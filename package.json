@@ -1,0 +1,16 @@
+{
+  "name": "automate-ubuntu-setup",
+  "version": "1.0.0",
+  "description": "Automate Machine Setup of Ubuntu like installing Code Editor, Third Party terminal and extension, browser installation etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ubuntu",
+    "automation",
+    "nodejs"
+  ],
+  "author": "Mayur Panchal",
+  "license": "MIT"
+}
