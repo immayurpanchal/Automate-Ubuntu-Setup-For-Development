@@ -1,6 +1,6 @@
 ### This project is created for those who want to setup their machines with below softwares.
 
-<h3>
+<h4>
    <ol>
       <li> Visual Studio Code </li>
       <li> Zsh (Oh my zsh) </li>
@@ -21,7 +21,7 @@
       - git status
       - directory path
    </ol>
-</h3>
+</h4>
 
 <hr/>
 <img src='./assets/q-browser.png' alt='browser question' width='100%' height='auto'>
