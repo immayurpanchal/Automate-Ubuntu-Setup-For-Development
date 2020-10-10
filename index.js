@@ -5,6 +5,7 @@ const installSyntaxHighlighting = require('./src/software/plugins/syntax-highlig
 const installVSCode = require('./src/software/vscode');
 const installAutoSuggest = require('./src/software/plugins/auto-suggestions');
 const installFzf = require('./src/software/plugins/fzf');
+const installVlc = require('./src/software/plugins/vlc');
 
 const log = console.log;
 
@@ -141,6 +142,24 @@ inquirer.prompt(questions).then((answers) => {
 	if (software.length > 0) {
 		if (software.includes(1)) {
 			installVSCode();
+		}
+		if (software.includes(2)) {
+			// Postman
+		}
+		if (software.includes(3)) {
+			// CopyQ
+		}
+		if (software.includes(4)) {
+			// Team Viewer
+		}
+		if (software.includes(5)) {
+			// Stacer
+		}
+		if (software.includes(6)) {
+			installVlc();
+		}
+		if (software.includes(7)) {
+			// XDM
 		}
 	}
 
