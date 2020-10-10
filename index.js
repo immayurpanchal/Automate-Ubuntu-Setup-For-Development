@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
 const { execSync } = require('child_process');
 const chalk = require('chalk');
+const installSyntaxHighlighting = require('./src/software/plugins/syntax-highlight');
+
+const log = console.log;
 
 const questions = [
 	{
@@ -93,16 +96,7 @@ inquirer.prompt(questions).then((answers) => {
 		}
 		if (plugin.length > 0) {
 			if (plugin.includes(1)) {
-				// Syntax Highlighting
-				execSync(
-					'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git'
-				);
-				execSync(
-					'echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc'
-				);
-				execSync(
-					'source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
-				);
+				installSyntaxHighlighting();
 			}
 			if (plugin.includes(2)) {
 				// Auto Suggestions
