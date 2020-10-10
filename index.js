@@ -5,7 +5,7 @@ const installSyntaxHighlighting = require('./src/software/plugins/syntax-highlig
 const installVSCode = require('./src/software/vscode');
 const installAutoSuggest = require('./src/software/plugins/auto-suggestions');
 const installFzf = require('./src/software/plugins/fzf');
-const installVlc = require('./src/software/plugins/vlc');
+const installVlc = require('./src/software/vlc');
 
 const log = console.log;
 
