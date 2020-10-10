@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const { execSync } = require('child_process');
 const chalk = require('chalk');
 const installSyntaxHighlighting = require('./src/software/plugins/syntax-highlight');
+const installVSCode = require('./src/software/vscode');
 
 const log = console.log;
 
@@ -35,11 +36,28 @@ const questions = [
 			{ value: 4, name: 'Command typo fixer (fuck)' },
 		],
 	},
+	{
+		type: 'checkbox',
+		name: 'software',
+		message: 'Which Software(s) Do you want to install?',
+		choices: [
+			new inquirer.Separator(' == Software(s) =='),
+			{ value: 1, name: 'Visual Studio Code' },
+			{ value: 2, name: 'Postman' },
+			{ value: 3, name: 'CopyQ' },
+			{ value: 4, name: 'TeamViewer' },
+			{ value: 5, name: 'Stacer' },
+			{ value: 6, name: 'VLC Media Player' },
+			{ value: 7, name: 'Xtreme Download Manager' },
+		],
+	},
 ];
 
 inquirer.prompt(questions).then((answers) => {
-	if (answers.browser.length > 0) {
-		if (answers.browser.includes('Chrome')) {
+	const { software, terminal, plugin, browser } = answers;
+
+	if (browser.length > 0) {
+		if (browser.includes('Chrome')) {
 			console.log(chalk.blueBright('Installing Chrome...'));
 			try {
 				execSync(
@@ -51,10 +69,10 @@ inquirer.prompt(questions).then((answers) => {
 				console.log(chalk.red('Sorry, Google Chrome Installation Failed!!'));
 			}
 		}
-		if (answers.browser.includes('Firefox')) {
+		if (browser.includes('Firefox')) {
 			console.log('Firefox selected');
 		}
-		if (answers.browser.includes('Brave')) {
+		if (browser.includes('Brave')) {
 			console.log(chalk.blueBright('Installing Brave Browser...'));
 			try {
 				execSync('sudo apt install apt-transport-https curl');
@@ -74,8 +92,6 @@ inquirer.prompt(questions).then((answers) => {
 	} else {
 		console.log(chalk.yellowBright('Skipped Browser installation'));
 	}
-
-	const { terminal, plugin } = answers;
 
 	if (terminal) {
 		// Install git
@@ -117,6 +133,12 @@ inquirer.prompt(questions).then((answers) => {
 					console.log(chalk.red('Failed to Install the Fuck plugin'));
 				}
 			}
+		}
+	}
+
+	if (software.length > 0) {
+		if (software.includes(1)) {
+			installVSCode();
 		}
 	}
 
