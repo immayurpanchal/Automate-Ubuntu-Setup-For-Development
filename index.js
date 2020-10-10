@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const installSyntaxHighlighting = require('./src/software/plugins/syntax-highlight');
 const installVSCode = require('./src/software/vscode');
 const installAutoSuggest = require('./src/software/plugins/auto-suggestions');
+const installFzf = require('./src/software/plugins/fzf');
 
 const log = console.log;
 
@@ -119,7 +120,7 @@ inquirer.prompt(questions).then((answers) => {
 				installAutoSuggest();
 			}
 			if (plugin.includes(3)) {
-				// Command history
+				installFzf();
 			}
 			if (plugin.includes(4)) {
 				try {
