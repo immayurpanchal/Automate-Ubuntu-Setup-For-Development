@@ -1,7 +1,6 @@
 const { execSync } = require('child_process');
 const chalk = require('chalk');
 
-// VSCode CLI installation
 module.exports = () => {
 	try {
 		console.log(chalk.blueBright('Installing VSCode... Please wait'));
