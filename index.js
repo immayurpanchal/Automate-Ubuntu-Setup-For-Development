@@ -3,6 +3,7 @@ const { execSync } = require('child_process');
 const chalk = require('chalk');
 const installSyntaxHighlighting = require('./src/software/plugins/syntax-highlight');
 const installVSCode = require('./src/software/vscode');
+const installAutoSuggest = require('./src/software/plugins/auto-suggestions');
 
 const log = console.log;
 
@@ -115,7 +116,7 @@ inquirer.prompt(questions).then((answers) => {
 				installSyntaxHighlighting();
 			}
 			if (plugin.includes(2)) {
-				// Auto Suggestions
+				installAutoSuggest();
 			}
 			if (plugin.includes(3)) {
 				// Command history
