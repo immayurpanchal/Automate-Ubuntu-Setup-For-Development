@@ -6,6 +6,13 @@ const installVSCode = require('./src/software/vscode');
 const installAutoSuggest = require('./src/software/plugins/auto-suggestions');
 const installFzf = require('./src/software/plugins/fzf');
 const installVlc = require('./src/software/vlc');
+const {
+	zsh,
+	cloneOhMyZsh,
+	moveZshRepo,
+	changeDefaultShell,
+} = require('./src/software/zsh');
+const installPowerlineFont = require('./src/software/fonts/powerline');
 
 const log = console.log;
 
@@ -56,7 +63,7 @@ const questions = [
 	},
 ];
 
-inquirer.prompt(questions).then((answers) => {
+inquirer.prompt(questions).then(async (answers) => {
 	const { software, terminal, plugin, browser } = answers;
 
 	if (browser.length > 0) {
@@ -97,6 +104,42 @@ inquirer.prompt(questions).then((answers) => {
 	}
 
 	if (terminal) {
+		// Install ZSH
+		try {
+			await zsh();
+		} catch (err) {
+			console.log(chalk.bgRedBright('Failed to install ZSH'));
+		}
+
+		// Install Powerline fonts
+		try {
+			await installPowerlineFont();
+		} catch (error) {
+			console.log(chalk.bgRedBright('Failed to install powerline font'));
+		}
+
+		// clone oh my zsh
+		try {
+			await cloneOhMyZsh();
+		} catch (error) {
+			console.log(chalk.bgRedBright('Failed to install oh my zsh'));
+		}
+
+		// moveZshRepo to home dir
+		try {
+			await moveZshRepo();
+		} catch (error) {
+			console.log(chalk.bgRedBright('Failed to move repo oh my zsh'));
+		}
+
+		// change default shell to zsh
+		try {
+			await changeDefaultShell();
+			console.log(chalk.green('Successfully default shell changed to zsh'));
+		} catch (error) {
+			console.log(chalk.bgRedBright('Failed to change default shell'));
+		}
+
 		// Install git
 		console.log(chalk.blueBright('Installing git...'));
 		try {
