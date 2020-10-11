@@ -7,7 +7,7 @@ module.exports = () =>
 			'apt-get',
 			'install',
 			'powerline',
-			'fonts-powerline',
+			'fonts-powerline'
 		]);
 
 		powerline.stdout.on('data', (data) => {

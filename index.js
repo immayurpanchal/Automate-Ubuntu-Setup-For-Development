@@ -10,7 +10,7 @@ const {
 	zsh,
 	cloneOhMyZsh,
 	moveZshRepo,
-	changeDefaultShell,
+	changeDefaultShell
 } = require('./src/software/zsh');
 const installPowerlineFont = require('./src/software/fonts/powerline');
 
@@ -25,14 +25,14 @@ const questions = [
 			new inquirer.Separator(' == Browsers =='),
 			{ name: 'Brave' },
 			{ name: 'Chrome' },
-			{ name: 'Firefox' },
-		],
+			{ name: 'Firefox' }
+		]
 	},
 	{
 		type: 'confirm',
 		name: 'terminal',
 		message: 'Do You want to install Oh My Zsh Terminal ?',
-		default: true,
+		default: true
 	},
 	{
 		type: 'checkbox',
@@ -43,8 +43,8 @@ const questions = [
 			{ value: 1, name: 'Syntax Highlighting' },
 			{ value: 2, name: 'Auto Suggestions' },
 			{ value: 3, name: 'Command history search (fzf)' },
-			{ value: 4, name: 'Command typo fixer (fuck)' },
-		],
+			{ value: 4, name: 'Command typo fixer (fuck)' }
+		]
 	},
 	{
 		type: 'checkbox',
@@ -58,9 +58,9 @@ const questions = [
 			{ value: 4, name: 'TeamViewer' },
 			{ value: 5, name: 'Stacer' },
 			{ value: 6, name: 'VLC Media Player' },
-			{ value: 7, name: 'Xtreme Download Manager' },
-		],
-	},
+			{ value: 7, name: 'Xtreme Download Manager' }
+		]
+	}
 ];
 
 inquirer.prompt(questions).then(async (answers) => {

@@ -35,7 +35,7 @@ const cloneOhMyZsh = () => {
 		const ohMyZsh = spawn('git', [
 			'clone',
 			'https://github.com/robbyrussell/oh-my-zsh.git',
-			'~/.oh-my-zsh',
+			'~/.oh-my-zsh'
 		]);
 
 		ohMyZsh.stdout.on('data', (data) => console.log(data.toString('utf8')));
@@ -57,7 +57,7 @@ const moveZshRepo = () => {
 	return new Promise((resolve, reject) => {
 		const moveZshRepo = spawn('cp', [
 			'~/.oh-my-zsh/templates/zshrc.zsh-template',
-			'~/.zshrc',
+			'~/.zshrc'
 		]);
 
 		moveZshRepo.stdout.on('data', (data) => console.log(data.toString('utf8')));
@@ -80,7 +80,7 @@ const changeDefaultShell = () => {
 		try {
 			spawnSync('chsh', ['-s', '/bin/zsh'], {
 				stdio: 'inherit',
-				stdin: 'inherit',
+				stdin: 'inherit'
 			});
 			resolve();
 		} catch (error) {
@@ -93,5 +93,5 @@ module.exports = {
 	cloneOhMyZsh,
 	zsh,
 	moveZshRepo,
-	changeDefaultShell,
+	changeDefaultShell
 };
